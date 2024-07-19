@@ -54,7 +54,7 @@ body {
     font-size: 28px;
     font-weight: bold;
     color: #d9048b;
-    margin:10px 0px 20px 0px;
+    margin: 10px 0px 20px 0px;
 }
 
 @media screen and (min-width:768px) {
@@ -85,14 +85,14 @@ body {
 .todo-items-container {
     display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     padding: 20px 0px 10px 0px;
 }
 
 .todo-item-container {
     margin: 25px 20px 0px 20px;
-    width:100%;
-    max-width:500px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .todo-user-input {
@@ -147,7 +147,7 @@ body {
     margin: 0;
     padding: 15px 20px 15px 20px;
     border-radius: 5px;
-    color: red;
+    color: #000000;
     cursor: pointer;
 }
 
@@ -176,28 +176,42 @@ body {
 
 .delete-note-button {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
     cursor: pointer;
     outline: none !important;
     text-align: left;
     background: none;
+    color:red;
     padding: 0px 0px 0px 0px;
     margin: 0px 15px 0px 0px;
-    width: 50%;
+    width: 30%;
+}
+
+@media screena and (min-width:992px){
+    .delete-note-button{
+        font-size:18px;
+    }
 }
 
 .archive-note-button {
     text-align: left;
-    width: 50%;
+    width: 30%;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
     cursor: pointer;
+    color:blue;
     outline: none !important;
     background: none;
     padding: 0px 0px 0px 0px;
     margin: 0px 15px 0px 0px;
+}
+
+@media screen and (min-width:992px){
+    .archive-note-button{
+        font-size:18px;
+    }
 }
 
 .checked {
@@ -209,7 +223,6 @@ body {
 .clear-list-button {
     margin: 20px 0px 30px 20px;
 }
-
 
 .navbar {
     display: flex;
@@ -271,10 +284,10 @@ body {
     padding: 0px;
     list-style-type: none;
     width: 100%;
-    max-width:1200px;
+    max-width: 1200px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -289,27 +302,29 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
 }
 
-.deleted-note-text{
-    width:85%;
+.deleted-note-text {
+    width: 85%;
     color: #323f4b;
     word-wrap: break-word;
     font-size: 18px;
-    padding:0px 0px 0px 0px;
-    margin:0px 10px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 10px 0px 0px;
     flex-grow: 1;
+    font-weight:500;
 }
 
-.x-icon{
-    font-weight:500;
-    width:15%;
-    border:none;
+.x-icon {
+    font-weight: bolder;
+    width: 15%;
+    border: none;
     background: none;
-    cursor:pointer;
-    outline:none !important;
-    max-width:70px;
+    cursor: pointer;
+    outline: none !important;
+    max-width: 70px;
+    color:red;
 }
 
 @media screen and (min-width:768px) {
@@ -318,66 +333,66 @@ body {
     }
 }
 
-.archived-notes-page{
-    width:100%;
-    max-width:1200px;
-    margin:auto;
-    padding:10px 0px 10px 0px;
+.archived-notes-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 0px 10px 0px;
 }
 
-.archived-notes-list-container{
+.archived-notes-list-container {
     list-style-type: none;
-    padding:0px 0px 0px 0px;
-    width:100%;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.archived-element{
-    width:100%;
-    max-width:450px;
-    padding:8px 12px 8px 12px;
-    margin:10px 10px 20px 10px;
-    border-left:8px solid #fa1d11;
-    background-color:#e6fcfc;
-    border-radius:8px;
+.archived-element {
+    width: 100%;
+    max-width: 450px;
+    padding: 8px 12px 8px 12px;
+    margin: 10px 10px 20px 10px;
+    border-left: 8px solid purple;
+    background-color: #edfcfb;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
 }
 
-.archived-element-heading{
-    width:100%;
-    word-wrap:break-word;
-    color:#000000;
-    font-weight:bold;
-    font-size:18px;
-    padding:0px 0px 0px 0px;
-    margin:0px 0px 10px 10px;
+.archived-element-heading {
+    width: 100%;
+    word-wrap: break-word;
+    color: #000000;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px 0px 0px 0px;
+    margin: 0px 0px 10px 10px;
 }
 
-@media screen and (min-width:768px){
-    .archived-element-heading{
-        font-size:23px;
+@media screen and (min-width:992px) {
+    .archived-element-heading {
+        font-size: 18px;
     }
 }
 
-.archived-element-button{
-    width:100%;
+.archived-element-button {
+    width: 100%;
     text-align: left;
-    color:blue;
-    font-weight:500;
-    padding:0px;
-    margin:20px 0px 10px 10px;
-    border:none;
-    background:none;
-    cursor:pointer;
-    outline:none !important;
-    font-size:16px;
+    color: orange;
+    font-weight: 500;
+    padding: 0px;
+    margin: 15px 0px 10px 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none !important;
+    font-size: 14px;
 }
 
-@media screen and (min-width:768px){
-    .archived-element-button{
-        font-size:18px;
+@media screen and (min-width:768px) {
+    .archived-element-button {
+        font-size: 16px;
     }
 }
