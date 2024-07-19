@@ -12,16 +12,16 @@ let createNotesMenu = document.getElementById("createNotesMenu");
 let archivedNotesMenu = document.getElementById("archivedNotesMenu");
 let deletedNotesMenu = document.getElementById("deletedNotesMenu");
 let deletedNotesListContainer = document.getElementById("deletedNotesListContainer");
-let archivedNotesListContainer=document.getElementById("archivedNotesListContainer");
-let myNotesMenu=document.getElementById("myNotesMenu");
-let createNotePage=document.getElementById("createNotePage");
-let clearDeletedListButton=document.getElementById("clearDeletedListButton");
-clearDeletedListButton.onclick=function(){
-    deletedNotesListContainer.textContent="";
+let archivedNotesListContainer = document.getElementById("archivedNotesListContainer");
+let myNotesMenu = document.getElementById("myNotesMenu");
+let createNotePage = document.getElementById("createNotePage");
+let clearDeletedListButton = document.getElementById("clearDeletedListButton");
+clearDeletedListButton.onclick = function() {
+    deletedNotesListContainer.textContent = "";
     localStorage.removeItem("deletedTodoList");
 };
 
-createNotesMenu.onclick=function(){
+createNotesMenu.onclick = function() {
     menuBar.classList.add("d-none");
     homePage.classList.remove("d-block");
     homePage.classList.add("d-none");
@@ -33,7 +33,7 @@ createNotesMenu.onclick=function(){
     createNotePage.classList.add("d-block");
 }
 
-myNotesMenu.onclick=function(){
+myNotesMenu.onclick = function() {
     menuBar.classList.add("d-none");
     archivedNotesPage.classList.remove("d-block");
     archivedNotesPage.classList.add("d-none");
@@ -81,19 +81,19 @@ function getArchivedTodoListFromLocalStorage() {
 
 let todoList = getTodoListFromLocalStorage();
 let deletedTodosList = getDeletedTodoListFromLocalStorage();
-let archivedTodosList=getArchivedTodoListFromLocalStorage();
+let archivedTodosList = getArchivedTodoListFromLocalStorage();
 
-function removeTodoPermanently(eachitem){
-    let todoId="deleted"+eachitem.uniqueNo;
-    let toRemoveElement=document.getElementById(todoId);
+function removeTodoPermanently(eachitem) {
+    let todoId = "deleted" + eachitem.uniqueNo;
+    let toRemoveElement = document.getElementById(todoId);
     deletedNotesListContainer.removeChild(toRemoveElement);
-    const index=deletedTodosList.findIndex(function(eachitem){
-        if(todoId==="deleted"+eachitem.uniqueNo){
+    const index = deletedTodosList.findIndex(function(eachitem) {
+        if (todoId === "deleted" + eachitem.uniqueNo) {
             return true;
         }
     });
-    deletedTodosList.splice(index,1);
-    localStorage.setItem("deletedTodoList",JSON.stringify(deletedTodosList));
+    deletedTodosList.splice(index, 1);
+    localStorage.setItem("deletedTodoList", JSON.stringify(deletedTodosList));
 }
 
 deletedNotesMenu.onclick = function() {
@@ -107,43 +107,43 @@ deletedNotesMenu.onclick = function() {
     createNotePage.classList.add("d-none");
     deletedNotesPage.classList.remove("d-none");
     deletedNotesPage.classList.add("d-block");
-    deletedNotesListContainer.textContent="";
+    deletedNotesListContainer.textContent = "";
     for (let eachitem of deletedTodosList) {
         let deletedNote = document.createElement("li");
         deletedNote.classList.add("deleted-note");
-        deletedNote.id="deleted"+eachitem.uniqueNo;
-        let deletedNoteText=document.createElement("p");
+        deletedNote.id = "deleted" + eachitem.uniqueNo;
+        let deletedNoteText = document.createElement("p");
         deletedNoteText.textContent = eachitem.text;
         deletedNoteText.classList.add("deleted-note-text");
         deletedNote.appendChild(deletedNoteText);
-        let deletedNoteRemoveButton=document.createElement("button");
-        deletedNoteRemoveButton.textContent="X";
+        let deletedNoteRemoveButton = document.createElement("button");
+        deletedNoteRemoveButton.textContent = "X";
         deletedNoteRemoveButton.classList.add("x-icon");
         deletedNote.appendChild(deletedNoteRemoveButton);
         deletedNotesListContainer.appendChild(deletedNote);
-        deletedNoteRemoveButton.onclick=function(){
+        deletedNoteRemoveButton.onclick = function() {
             removeTodoPermanently(eachitem);
         };
-}
+    }
 };
 
-function unarchiveNote(id){
-    let element=document.getElementById("archived"+id);
+function unarchiveNote(id) {
+    let element = document.getElementById("archived" + id);
     archivedNotesListContainer.removeChild(element);
-    let index=archivedTodosList.findIndex(function(eachitem){
-        if("archived"+id==="archived"+eachitem.uniqueNo){
+    let index = archivedTodosList.findIndex(function(eachitem) {
+        if ("archived" + id === "archived" + eachitem.uniqueNo) {
             return true;
         }
     });
-    let item=archivedTodosList[index];
+    let item = archivedTodosList[index];
     todoList.push(item)
-    archivedTodosList.splice(index,1);
-    localStorage.setItem("todoList",JSON.stringify(todoList));
+    archivedTodosList.splice(index, 1);
+    localStorage.setItem("todoList", JSON.stringify(todoList));
     createAndAppendTodo(item);
-    localStorage.setItem("archivedTodoList",JSON.stringify(archivedTodosList));
+    localStorage.setItem("archivedTodoList", JSON.stringify(archivedTodosList));
 }
 
-archivedNotesMenu.onclick=function(){
+archivedNotesMenu.onclick = function() {
     homePage.classList.remove("d-block");
     homePage.classList.add("d-none");
     menuBar.classList.remove("d-block");
@@ -154,22 +154,22 @@ archivedNotesMenu.onclick=function(){
     deletedNotesPage.classList.add("d-none");
     archivedNotesPage.classList.remove("d-none");
     archivedNotesPage.classList.add("d-block", "archived-notes-page");
-    archivedNotesListContainer.textContent="";
-    for(let eachitem of archivedTodosList){
-        let archivedElement=document.createElement("li");
+    archivedNotesListContainer.textContent = "";
+    for (let eachitem of archivedTodosList) {
+        let archivedElement = document.createElement("li");
         archivedElement.classList.add("archived-element");
-        archivedElement.id="archived"+eachitem.uniqueNo;
+        archivedElement.id = "archived" + eachitem.uniqueNo;
         archivedNotesListContainer.appendChild(archivedElement);
-        
-        let archivedElementHeading=document.createElement("h1");
-        archivedElementHeading.textContent=eachitem.text;
+
+        let archivedElementHeading = document.createElement("h1");
+        archivedElementHeading.textContent = eachitem.text;
         archivedElementHeading.classList.add("archived-element-heading");
         archivedElement.appendChild(archivedElementHeading);
-        
-        let archivedElementButton=document.createElement("button");
+
+        let archivedElementButton = document.createElement("button");
         archivedElementButton.classList.add("archived-element-button");
-        archivedElementButton.textContent="Unarchive Note";
-        archivedElementButton.onclick=function(){
+        archivedElementButton.textContent = "Unarchive Note";
+        archivedElementButton.onclick = function() {
             unarchiveNote(eachitem.uniqueNo)
         }
         archivedElement.appendChild(archivedElementButton);
@@ -197,19 +197,19 @@ function onTodoStatusChange(checkboxId, labelId, todoId) {
     }
 }
 
-function onArchiveNote(todoId){
-    let todoElement=document.getElementById(todoId);
+function onArchiveNote(todoId) {
+    let todoElement = document.getElementById(todoId);
     todoItemsContainer.removeChild(todoElement);
-    let index=todoList.findIndex(function(eachitem){
-        if(todoId==="todo"+eachitem.uniqueNo){
+    let index = todoList.findIndex(function(eachitem) {
+        if (todoId === "todo" + eachitem.uniqueNo) {
             return true;
         }
     });
-    let todoItem=todoList[index];
+    let todoItem = todoList[index];
     archivedTodosList.push(todoItem);
-    todoList.splice(index,1);
-    localStorage.setItem("archivedTodoList",JSON.stringify(archivedTodosList));
-    localStorage.setItem("todoList",JSON.stringify(todoList));
+    todoList.splice(index, 1);
+    localStorage.setItem("archivedTodoList", JSON.stringify(archivedTodosList));
+    localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
 function onDeleteTodo(todoId) {
@@ -291,7 +291,7 @@ function createAndAppendTodo(todo) {
     let archiveNoteButton = document.createElement("button");
     archiveNoteButton.classList.add("archive-note-button");
     archiveNoteButton.textContent = "Archive Note";
-    archiveNoteButton.onclick=function(){
+    archiveNoteButton.onclick = function() {
         onArchiveNote(todoId);
     }
     optionsContainer.appendChild(archiveNoteButton);
@@ -307,7 +307,7 @@ addTodoButton.onclick = function() {
             text: userInputValue,
             uniqueNo: userInputValue,
             isChecked: false,
-            createdDate:new Date()
+            createdDate: new Date()
         };
         todoList.push(newTodo);
         createAndAppendTodo(newTodo);
