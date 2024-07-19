@@ -1,0 +1,383 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+.todos-bg-container {
+    height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+body {
+    margin: 0px;
+    padding: 10px;
+    background-color: #f9fbfe;
+}
+
+.create-task-heading {
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 700;
+    color: #f2630a;
+    padding: 20px 10px 20px 20px;
+}
+
+@media screen and (min-width:768px) {
+    .create-task-heading {
+        font-size: 33px;
+    }
+}
+
+.create-task-heading-subpart {
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 500;
+    color: #000000;
+}
+
+@media screen and (min-width:768px) {
+    .create-task-heading-subpart {
+        font-size: 33px;
+    }
+}
+
+.search-container {
+    width: 94%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 10px 0px 20px;
+}
+
+.todo-items-heading {
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: bold;
+    color: #d9048b;
+    margin:10px 0px 20px 0px;
+}
+
+@media screen and (min-width:768px) {
+    .todo-items-heading {
+        font-size: 33px;
+    }
+}
+
+.todo-items-heading-subpart {
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.search-input {
+    background-color: white;
+    width: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.todo-items-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    padding: 20px 0px 10px 0px;
+}
+
+.todo-item-container {
+    margin: 25px 20px 0px 20px;
+    width:100%;
+    max-width:500px;
+}
+
+.todo-user-input {
+    background-color: white;
+    width: 90%;
+    max-width: 700px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+    border-radius: 10px;
+    margin: 0px 20px 0px 20px;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.add-task-button {
+    margin: 20px 0px 20px 20px;
+}
+
+.label-container {
+    background-color: #e6f6ff;
+    width: 85%;
+    border-style: solid;
+    border-width: 6px;
+    border-color: orange;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.checkbox-input {
+    width: 15%;
+    max-width: 20px;
+    margin-top: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 400;
+    width: 100%;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 15px 20px 15px 20px;
+    border-radius: 5px;
+    color: red;
+    cursor: pointer;
+}
+
+.delete-icon-container {
+    text-align: right;
+    width: 20%;
+    border: none;
+    outline: none !important;
+    background: none;
+}
+
+.archive-icon-container {
+    background: none;
+    text-align: right;
+    border: none;
+    outline: none !important;
+    width: 20%;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 10px 10px 20px;
+    width: 100%;
+}
+
+.delete-note-button {
+    font-weight: 500;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    outline: none !important;
+    text-align: left;
+    background: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 15px 0px 0px;
+    width: 50%;
+}
+
+.archive-note-button {
+    text-align: left;
+    width: 50%;
+    font-weight: 500;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    outline: none !important;
+    background: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 15px 0px 0px;
+}
+
+.checked {
+    text-decoration: line-through;
+    color: green;
+    font-weight: bold;
+}
+
+.clear-list-button {
+    margin: 20px 0px 30px 20px;
+}
+
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px 8px 12px;
+    background-color: #f2f7f5;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+}
+
+.navbar-heading {
+    padding: 0px;
+    margin: 0px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.menu-button {
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    outline: none !important;
+}
+
+.menu-icon {
+    width: 20px;
+}
+
+.mobile-menu-bg-container {
+    width: 100%;
+    padding: 20px 10px 10px 10px;
+    margin: 10px 0px 0px 0px;
+    border-radius: 10px;
+    background-color: #f2f7f5;
+    border: 2px solid lightgray;
+}
+
+.option-icon {
+    width: 16px;
+    margin: 0px 5px 2px 0px;
+}
+
+.menu-heading {
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    background: none;
+    color: #000000;
+    font-weight: 500;
+    padding: 0px 0px 0px 0px;
+    outline: none !important;
+    margin: 0px 0px 15px 10px;
+}
+
+.deleted-notes-list-container {
+    padding: 0px;
+    list-style-type: none;
+    width: 100%;
+    max-width:1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.deleted-note {
+    border: 2px solid lightgray;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    padding: 10px 12px 10px 12px;
+    margin: 10px 5px 10px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.deleted-note-text{
+    width:85%;
+    color: #323f4b;
+    word-wrap: break-word;
+    font-size: 18px;
+    padding:0px 0px 0px 0px;
+    margin:0px 10px 0px 0px;
+    flex-grow: 1;
+}
+
+.x-icon{
+    font-weight:500;
+    width:15%;
+    border:none;
+    background: none;
+    cursor:pointer;
+    outline:none !important;
+    max-width:70px;
+}
+
+@media screen and (min-width:768px) {
+    .deleted-note-text {
+        font-size: 20px;
+    }
+}
+
+.archived-notes-page{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:10px 0px 10px 0px;
+}
+
+.archived-notes-list-container{
+    list-style-type: none;
+    padding:0px 0px 0px 0px;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.archived-element{
+    width:100%;
+    max-width:450px;
+    padding:8px 12px 8px 12px;
+    margin:10px 10px 20px 10px;
+    border-left:8px solid #fa1d11;
+    background-color:#e6fcfc;
+    border-radius:8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.archived-element-heading{
+    width:100%;
+    word-wrap:break-word;
+    color:#000000;
+    font-weight:bold;
+    font-size:18px;
+    padding:0px 0px 0px 0px;
+    margin:0px 0px 10px 10px;
+}
+
+@media screen and (min-width:768px){
+    .archived-element-heading{
+        font-size:23px;
+    }
+}
+
+.archived-element-button{
+    width:100%;
+    text-align: left;
+    color:blue;
+    font-weight:500;
+    padding:0px;
+    margin:20px 0px 10px 10px;
+    border:none;
+    background:none;
+    cursor:pointer;
+    outline:none !important;
+    font-size:16px;
+}
+
+@media screen and (min-width:768px){
+    .archived-element-button{
+        font-size:18px;
+    }
+}
